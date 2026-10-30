@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 電話番号が自動的にリンク扱いにされるのを防ぐ。 -->
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- ファビコン画像の指定。 -->
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- スマホでホームにサイトを追加したときに表示するアイコン画像の指定。 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico" />
+
+    <!--SNS共有関係-->
+    <meta property="og:url" content="ページのURL" />
+    <meta property="og:title" content="ページのタイトル" />
+    <meta property="og:type" content="ページのタイプ" />
+    <meta property="og:description" content="記事の抜粋" />
+    <meta property="og:image" content="画像のURL" />
+    <!--絶対パスのURLで設定-->
+    <meta name="twitter:card" content="カード種類" />
+    <meta name="twitter:site" content="@Twitterユーザー名" />
+    <meta property="og:site_name" content="サイト名" />
+    <meta property="fb:app_id" content="appIDを入力" />
+    <!--なければ削除-->
+
+    <!--【開発用】検索除外　本番公開したら必ず削除すること！-->
+    <meta name="robots" content="noindex,nofollow" />
+
+    <!--ブラウザのスタイルの削除-->
+    <link rel="stylesheet" href="css/reset.css" />
+    <!--ベースのスタイルの設置-->
+    <link rel="stylesheet" href="css/form.css" />
+
+    <title>不動産無料査定 │ 売却にお悩みの方へ</title>
+    <meta name="description" content="ページの内容を表す文章" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
+    <script src="./js/slider.js" defer></script>
+    <script src="./js/app.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a1de2d5bc2.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="page-bg">
+      <!-- Header -->
+      <header class="site-header">
+        <div class="site-header_inner">
+          <h1 class="site-logo">
+            <a href="/service/appraisal/index.html">
+              <img src="./img/logo-black-name.svg" alt="ナピュアロゴ" />
+            </a>
+          </h1>
+        </div>
+      </header>
+
+      <!-- Form Area -->
+      <main class="form-page">
+        <section class="assessment-form-section">
+          <div class="assessment-form-card">
+            <div class="assessment-form-topline"></div>
+
+            <div class="assessment-step">
+              <span class="assessment-step_badge">STEP.1</span>
+              <p class="assessment-step_text">査定する物件情報を入力してください。</p>
+            </div>
+
+            <form class="assessment-form" action="/service/appraisal/contact/index.html" method="get">
+              <!-- 物件種別 -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label>物件種別</label>
+                </div>
+                <div class="form-input">
+                  <div class="radio-group horizontal">
+                    <label><input type="radio" name="property_type" value="戸建て" checked /> 戸建て</label>
+                    <label><input type="radio" name="property_type" value="分譲マンション" /> 分譲マンション</label>
+                    <label><input type="radio" name="property_type" value="土地" /> 土地</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 都道府県 -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label for="prefecture">都道府県</label>
+                </div>
+                <div class="form-input">
+                  <select id="prefecture" class="js-prefecture" name="property_prefecture" required>
+                    <option value="">都道府県を入力してください</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 市区町村 -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label for="city">市区町村</label>
+                </div>
+                <div class="form-input">
+                  <select id="city" class="js-city" name="property_city" disabled required>
+                    <option value="">市区町村を入力してください</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 町名 -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label for="town">町名</label>
+                </div>
+                <div class="form-input">
+                  <select id="town" class="js-town" name="property_town" disabled required>
+                    <option value="">町名を入力してください</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 以降のご住所 -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label for="address">以降のご住所</label>
+                </div>
+                <div class="form-input">
+                  <input
+                    type="text"
+                    id="address"
+                    name="property_address"
+                    placeholder="例）1-1 ○○○ハイート101"
+                    required />
+                  <p class="form-note">
+                    ※アパート・マンション名と部屋番号も必ずご入力ください。不備がありますと資料送付やご連絡ができない恐れがございます。
+                  </p>
+                </div>
+              </div>
+
+              <!-- 住まいの状況 -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label>住まいの状況</label>
+                </div>
+                <div class="form-input">
+                  <div class="radio-group horizontal">
+                    <label><input type="radio" name="living_status" value="居住中" /> 居住中</label>
+                    <label><input type="radio" name="living_status" value="空室" /> 空室</label>
+                    <label><input type="radio" name="living_status" value="賃貸中" /> 賃貸中</label>
+                    <label><input type="radio" name="living_status" value="その他" /> その他</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 土地面積 -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label for="land_area">土地面積</label>
+                </div>
+                <div class="form-input">
+                  <select id="land_area" name="land_area" required>
+                    <option value="">土地面積を入力してください</option>
+                    <option value="〜50㎡">〜50㎡</option>
+                    <option value="51〜100㎡">51〜100㎡</option>
+                    <option value="101〜150㎡">101〜150㎡</option>
+                    <option value="151㎡〜">151㎡〜</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 建物面積 -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label for="building_area">建物面積</label>
+                </div>
+                <div class="form-input">
+                  <select id="building_area" name="building_area" required>
+                    <option value="">建物面積を入力してください</option>
+                    <option value="〜50㎡">〜50㎡</option>
+                    <option value="51〜100㎡">51〜100㎡</option>
+                    <option value="101〜150㎡">101〜150㎡</option>
+                    <option value="151㎡〜">151㎡〜</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 間取り -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label for="layout">間取り</label>
+                </div>
+                <div class="form-input">
+                  <select id="layout" name="layout" required>
+                    <option value="">間取りを入力してください</option>
+                    <option value="1R / 1K">1R / 1K</option>
+                    <option value="1LDK / 2K">1LDK / 2K</option>
+                    <option value="2LDK / 3K">2LDK / 3K</option>
+                    <option value="3LDK以上">3LDK以上</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 築年数 -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label for="building_age">築年数</label>
+                </div>
+                <div class="form-input">
+                  <select id="building_age" name="building_age" required>
+                    <option value="">築年数を入力してください</option>
+                    <option value="5年未満">5年未満</option>
+                    <option value="5〜10年">5〜10年</option>
+                    <option value="11〜20年">11〜20年</option>
+                    <option value="21年以上">21年以上</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 物件との関連性 -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label for="relation">物件との関連性</label>
+                </div>
+                <div class="form-input">
+                  <select id="relation" name="relation" required>
+                    <option value="">物件との関連性を入力してください</option>
+                    <option value="本人所有">本人所有</option>
+                    <option value="家族所有">家族所有</option>
+                    <option value="相続予定">相続予定</option>
+                    <option value="その他">その他</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 売却希望時期 -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label for="timing">売却希望時期</label>
+                </div>
+                <div class="form-input">
+                  <select id="timing" name="timing" required>
+                    <option value="">売却希望時期を入力してください</option>
+                    <option value="すぐにでも">すぐにでも</option>
+                    <option value="3ヶ月以内">3ヶ月以内</option>
+                    <option value="半年以内">半年以内</option>
+                    <option value="未定">未定</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 依頼理由 -->
+              <div class="form-row">
+                <div class="form-label">
+                  <span class="required-badge">必須</span>
+                  <label for="reason">依頼理由</label>
+                </div>
+                <div class="form-input">
+                  <select id="reason" name="reason" required>
+                    <option value="">依頼理由を入力してください</option>
+                    <option value="住み替え">住み替え</option>
+                    <option value="相続">相続</option>
+                    <option value="資産整理">資産整理</option>
+                    <option value="離婚">離婚</option>
+                    <option value="その他">その他</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- その他、ご要望等 -->
+              <div class="form-row textarea-row">
+                <div class="form-label optional-label">
+                  <span class="optional-badge">任意</span>
+                  <label for="request">その他、ご要望等</label>
+                </div>
+                <div class="form-input">
+                  <div class="request-box">
+                    <p class="request-lead">
+                      売却査定にあたり、ご希望やご質問、売却に向けた現在の状況などをご自由に入力ください。
+                      不動産会社とのやり取りがスムーズになる場合がございます。
+                    </p>
+                    <div class="request-example">
+                      <p>入力例</p>
+                      <ul>
+                        <li>
+                          ・子どもが大きくなり、今の間取りでは生活が窮屈になってきたため、広い家への住み替えを検討している。
+                        </li>
+                        <li>・相続した家を売る予定だが、維持費もかかるため、早めに売却したいと考えている。</li>
+                        <li>
+                          ・転職により生活圏が変わるため売却を検討。売却と合わせて次の住まいも提案してもらいたい。
+                        </li>
+                      </ul>
+                    </div>
+                    <textarea id="request" name="request"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 送信ボタン -->
+              <div class="form-submit">
+                <button type="submit" class="cta-submit">
+                  <span class="submit-arrow">›</span>
+                  あと1ステップで完了です
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer wrapper">
+        <div class="footer-box_top">
+          <nav class="footer-box_text">
+            <ul class="footer-box_body-top">
+              <li><a href="/napure/company/index.html" target="_blank" rel="noopener noreferrer">運営会社</a></li>
+              <li><a href="/service/about/terms/index.html">利用規約</a></li>
+              <li>
+                <a href="/napure/privacypolicy/index.html" target="_blank" rel="noopener noreferrer">
+                  プライバシーポリシー
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-disclaimer">
+          <p class="footer-disclaimer-title">免責事項</p>
+          <p class="footer-disclaimer-text">
+            当サービスの提供、または当サービスの変更、遅延、中止、廃止その他当サービスに関わり利用者または第三者が損害を被った場合でも、当社に故意又は重過失がない限り、当社は一切の責任を負わないものとします。利用者はこれを承認の上、自己の責任において当サービスを利用するものとします。
+          </p>
+        </div>
+
+        <div class="footer-box_bottom">
+          <p>Copyright © Napure Co.,Ltd. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

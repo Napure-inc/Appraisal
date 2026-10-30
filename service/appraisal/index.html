@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 電話番号が自動的にリンク扱いにされるのを防ぐ。 -->
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- ファビコン画像の指定。 -->
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- スマホでホームにサイトを追加したときに表示するアイコン画像の指定。 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico" />
+
+    <!--SNS共有関係-->
+    <meta property="og:url" content="ページのURL" />
+    <meta property="og:title" content="ページのタイトル" />
+    <meta property="og:type" content="ページのタイプ" />
+    <meta property="og:description" content="記事の抜粋" />
+    <meta property="og:image" content="画像のURL" />
+    <!--絶対パスのURLで設定-->
+    <meta name="twitter:card" content="カード種類" />
+    <meta name="twitter:site" content="@Twitterユーザー名" />
+    <meta property="og:site_name" content="サイト名" />
+    <meta property="fb:app_id" content="appIDを入力" />
+    <!--なければ削除-->
+
+    <!--【開発用】検索除外　本番公開したら必ず削除すること！-->
+    <meta name="robots" content="noindex,nofollow" />
+
+    <!--ブラウザのスタイルの削除-->
+    <link rel="stylesheet" href="css/reset.css" />
+    <!--ベースのスタイルの設置-->
+    <link rel="stylesheet" href="css/base.css" />
+    <!--基本のスタイルの設置-->
+    <link rel="stylesheet" href="css/top.css" />
+
+    <title>不動産無料査定 │ 売却にお悩みの方へ</title>
+    <meta name="description" content="ページの内容を表す文章" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
+    <script src="./js/slider.js" defer></script>
+    <script src="./js/app.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a1de2d5bc2.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <!-- メインビジュアル -->
+    <div class="main_visual">
+      <div class="main_visual-text">
+        <div class="wrap">
+          <div class="mv-copy">
+            <p class="mv-label">関西エリアの売却相談に対応</p>
+
+            <div class="mv-text_title">
+              <p class="mv-text_title-top">不動産の価値を知って</p>
+              <h1 class="mv-text_title-bottom">
+                <span>損しない売却</span>を<br />
+                はじめませんか？
+              </h1>
+            </div>
+
+            <p class="mv-text_lead">
+              相場確認から売却のご相談まで、はじめての方にも分かりやすくご案内します。
+              <br />
+              しつこい営業を抑えた、安心の無料査定です。
+            </p>
+
+            <ul class="mv-points">
+              <li>査定無料</li>
+              <li>相談のみOK</li>
+              <li>秘密厳守で対応</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="main_imgbox">
+        <div class="main_visual-item">
+          <img src="./img/mv01.jpg" alt="街並みを背景にした不動産査定のメインビジュアル" />
+          <div class="town_parallax"></div>
+        </div>
+
+        <div class="main_visual-scroll" id="type">
+          <p>Scroll</p>
+        </div>
+      </div>
+    </div>
+    <!-- ジャンプボタン -->
+    <a href="#" id="page_top">
+      <p class="button-top">TOP</p>
+    </a>
+    <!--選択フォーム-->
+    <section class="estimate-section">
+      <div class="estimate-message">あなたの不動産を<span>今すぐ無料査定</span></div>
+
+      <div class="estimate-form">
+        <div class="estimate-item">
+          <div class="estimate-head">
+            <span class="estimate-step">Step.1</span>
+            <span class="estimate-label">物件種別を選択</span>
+          </div>
+
+          <select class="estimate-select js-propertyType">
+            <option value="">物件種別を選択</option>
+            <option value="戸建て">戸建て</option>
+            <option value="分譲マンション">分譲マンション</option>
+            <option value="土地">土地</option>
+          </select>
+        </div>
+
+        <!-- 都道府県 -->
+        <div class="estimate-item">
+          <div class="estimate-head">
+            <span class="estimate-step">Step.2</span>
+            <span class="estimate-label">都道府県を選択</span>
+          </div>
+
+          <select class="estimate-select js-prefecture">
+            <option value="">都道府県を選択</option>
+          </select>
+        </div>
+
+        <!-- 市区町村 -->
+        <div class="estimate-item">
+          <div class="estimate-head estimate-head--single">
+            <span class="estimate-label">市区町村を選択</span>
+          </div>
+
+          <select class="estimate-select js-city" disabled>
+            <option value="">市区町村を選択</option>
+          </select>
+        </div>
+
+        <!-- 地区名・丁目 -->
+        <div class="estimate-item">
+          <div class="estimate-head estimate-head--single">
+            <span class="estimate-label">地区名・丁目を選択</span>
+          </div>
+
+          <select class="estimate-select js-town" disabled>
+            <option value="">地区名・丁目を選択</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- 診断開始ボタン -->
+    <div class="cta-area">
+      <a href="/appraisal/form/index.html" class="cta-button js-goToForm">
+        <span class="cta-sub">かんたん60秒入力で完了</span>
+        <span class="cta-main">今すぐ無料で査定する</span>
+      </a>
+    </div>
+    <!--契約までの流れ-->
+    <section class="flow">
+      <div class="flow_inner">
+        <div class="flow_heading">
+          <h2>媒介契約までの流れ</h2>
+          <span class="flow_line"></span>
+        </div>
+
+        <div class="flow_steps">
+          <article class="flow_step">
+            <div class="flow_step_top">
+              <span class="flow_num">01</span>
+              <div class="flow_image">
+                <img src="./img/flow01.png" alt="" />
+              </div>
+            </div>
+
+            <h3>査定フォームからご相談</h3>
+            <p>
+              物件情報やご連絡先など、必要事項を入力して査定をお申し込みいただきます。
+              はじめての方でも進めやすいよう、入力項目はできるだけ分かりやすく整理しています。
+            </p>
+          </article>
+
+          <div class="flow_arrow" aria-hidden="true"></div>
+
+          <article class="flow_step">
+            <div class="flow_step_top">
+              <span class="flow_num">02</span>
+              <div class="flow_image">
+                <img src="./img/flow02.png" alt="" />
+              </div>
+            </div>
+
+            <h3>訪問査定で物件を確認</h3>
+            <p>
+              担当スタッフが現地を確認し、周辺相場や物件の状態をふまえて査定を進めます。
+              気になる点や売却時期のご希望も、じっくりご相談いただけます。
+            </p>
+          </article>
+
+          <div class="flow_arrow" aria-hidden="true"></div>
+
+          <article class="flow_step">
+            <div class="flow_step_top">
+              <span class="flow_num">03</span>
+              <div class="flow_image">
+                <img src="./img/flow03.png" alt="" />
+              </div>
+            </div>
+
+            <h3>査定内容を比較して契約へ</h3>
+            <p>
+              ご提案内容や販売方針をご確認いただき、媒介契約へ進みます。
+              価格だけでなく、対応力や販売戦略まで含めてご納得いただけるまでご説明いたします。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!--選択フォーム-->
+    <section class="estimate-section">
+      <div class="estimate-message">あなたの不動産を<span>今すぐ無料査定</span></div>
+
+      <div class="estimate-form">
+        <div class="estimate-item">
+          <div class="estimate-head">
+            <span class="estimate-step">Step.1</span>
+            <span class="estimate-label">物件種別を選択</span>
+          </div>
+
+          <select class="estimate-select js-propertyType">
+            <option value="">物件種別を選択</option>
+            <option value="戸建て">戸建て</option>
+            <option value="分譲マンション">分譲マンション</option>
+            <option value="土地">土地</option>
+          </select>
+        </div>
+
+        <!-- 都道府県 -->
+        <div class="estimate-item">
+          <div class="estimate-head">
+            <span class="estimate-step">Step.2</span>
+            <span class="estimate-label">都道府県を選択</span>
+          </div>
+
+          <select class="estimate-select js-prefecture">
+            <option value="">都道府県を選択</option>
+          </select>
+        </div>
+
+        <!-- 市区町村 -->
+        <div class="estimate-item">
+          <div class="estimate-head estimate-head--single">
+            <span class="estimate-label">市区町村を選択</span>
+          </div>
+
+          <select class="estimate-select js-city" disabled>
+            <option value="">市区町村を選択</option>
+          </select>
+        </div>
+
+        <!-- 地区名・丁目 -->
+        <div class="estimate-item">
+          <div class="estimate-head estimate-head--single">
+            <span class="estimate-label">地区名・丁目を選択</span>
+          </div>
+
+          <select class="estimate-select js-town" disabled>
+            <option value="">地区名・丁目を選択</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- 診断開始ボタン -->
+    <div class="cta-area">
+      <a href="/appraisal/form/index.html" class="cta-button js-goToForm">
+        <span class="cta-sub">かんたん60秒入力で完了</span>
+        <span class="cta-main">今すぐ無料で査定する</span>
+      </a>
+    </div>
+    <!--3大メリット-->
+    <section class="benefits">
+      <div class="benefits_inner">
+        <div class="benefits_heading">
+          <h2>当無料査定のメリット</h2>
+          <span class="benefits_line"></span>
+        </div>
+
+        <div class="benefits_cards">
+          <article class="benefit_card">
+            <div class="benefit_badge">
+              <span class="benefit_label">メリット</span>
+              <span class="benefit_num">01</span>
+            </div>
+
+            <div class="benefit_card_inner">
+              <h3>納得して売却の判断ができる</h3>
+
+              <div class="benefit_image">
+                <img src="./img/benefit01.jpg" alt="売却判断について説明を受けるお客様" />
+              </div>
+
+              <p>
+                物件の価値や市場相場を分かりやすくご説明。
+                不安や疑問をその場で解消できるため、後悔のない売却判断が可能です。
+              </p>
+            </div>
+          </article>
+
+          <article class="benefit_card">
+            <div class="benefit_badge">
+              <span class="benefit_label">メリット</span>
+              <span class="benefit_num">02</span>
+            </div>
+
+            <div class="benefit_card_inner">
+              <h3>最短ルート、最速で売却が進められる</h3>
+
+              <div class="benefit_image">
+                <img src="./img/benefit03.jpg" alt="売却までの流れを説明するスタッフ" />
+              </div>
+
+              <p>売却までの流れや必要な手続きを明確化。 無駄な時間や手間を省き、スムーズに売却を進められます。</p>
+            </div>
+          </article>
+
+          <article class="benefit_card">
+            <div class="benefit_badge">
+              <span class="benefit_label">メリット</span>
+              <span class="benefit_num">03</span>
+            </div>
+
+            <div class="benefit_card_inner">
+              <h3>相場より高値で売却する可能性を引き上げる</h3>
+
+              <div class="benefit_image">
+                <img src="./img/benefit02.jpg" alt="高値売却の提案を受けるお客様" />
+              </div>
+
+              <p>物件の強みを活かした販売戦略をご提案。 適切な価格設定と訴求で、より高く売れる可能性を高めます。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!--選択フォーム-->
+    <section class="estimate-section">
+      <div class="estimate-message">あなたの不動産を<span>今すぐ無料査定</span></div>
+
+      <div class="estimate-form">
+        <div class="estimate-item">
+          <div class="estimate-head">
+            <span class="estimate-step">Step.1</span>
+            <span class="estimate-label">物件種別を選択</span>
+          </div>
+
+          <select class="estimate-select js-propertyType">
+            <option value="">物件種別を選択</option>
+            <option value="戸建て">戸建て</option>
+            <option value="分譲マンション">分譲マンション</option>
+            <option value="土地">土地</option>
+          </select>
+        </div>
+
+        <!-- 都道府県 -->
+        <div class="estimate-item">
+          <div class="estimate-head">
+            <span class="estimate-step">Step.2</span>
+            <span class="estimate-label">都道府県を選択</span>
+          </div>
+
+          <select class="estimate-select js-prefecture">
+            <option value="">都道府県を選択</option>
+          </select>
+        </div>
+
+        <!-- 市区町村 -->
+        <div class="estimate-item">
+          <div class="estimate-head estimate-head--single">
+            <span class="estimate-label">市区町村を選択</span>
+          </div>
+
+          <select class="estimate-select js-city" disabled>
+            <option value="">市区町村を選択</option>
+          </select>
+        </div>
+
+        <!-- 地区名・丁目 -->
+        <div class="estimate-item">
+          <div class="estimate-head estimate-head--single">
+            <span class="estimate-label">地区名・丁目を選択</span>
+          </div>
+
+          <select class="estimate-select js-town" disabled>
+            <option value="">地区名・丁目を選択</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- 診断開始ボタン -->
+    <div class="cta-area">
+      <a href="/appraisal/form/index.html" class="cta-button js-goToForm">
+        <span class="cta-sub">かんたん60秒入力で完了</span>
+        <span class="cta-main">今すぐ無料で査定する</span>
+      </a>
+    </div>
+    <!--FAQアコーディオンセクション-->
+    <section class="faq-section">
+      <div class="faq-inner">
+        <h2 class="faq-title">よくある質問</h2>
+        <div class="faq-title-line"></div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span class="faq-icon faq-icon-q">Q</span>
+              <span class="faq-question-text">利用にお金はかかりますか？</span>
+              <span class="faq-toggle"></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <span class="faq-icon faq-icon-a">A</span>
+                <p class="faq-answer-text">持ち家売却をご利用の際の費用は一切掛かりません。安心してご利用ください。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span class="faq-icon faq-icon-q">Q</span>
+              <span class="faq-question-text">査定依頼をしたらその会社に売却依頼をしないといけないのですか？</span>
+              <span class="faq-toggle"></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <span class="faq-icon faq-icon-a">A</span>
+                <p class="faq-answer-text">
+                  査定依頼をしたからといって、その会社に売却依頼する義務は一切ございません。<br />
+                  査定はあくまでも手段の一つであるため、自由な選択肢を持っていただくのが重要です。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span class="faq-icon faq-icon-q">Q</span>
+              <span class="faq-question-text">信頼できるサービスなのですか？</span>
+              <span class="faq-toggle"></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <span class="faq-icon faq-icon-a">A</span>
+                <p class="faq-answer-text">提携会社の情報を確認しながら比較できるため、安心してご利用いただけます。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span class="faq-icon faq-icon-q">Q</span>
+              <span class="faq-question-text">すぐ売るつもりはないのですが、査定依頼はできますか？</span>
+              <span class="faq-toggle"></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <span class="faq-icon faq-icon-a">A</span>
+                <p class="faq-answer-text">
+                  もちろん可能です。相場の把握や将来の検討のための査定依頼も歓迎しています。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span class="faq-icon faq-icon-q">Q</span>
+              <span class="faq-question-text">古い物件でも査定できますか？</span>
+              <span class="faq-toggle"></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <span class="faq-icon faq-icon-a">A</span>
+                <p class="faq-answer-text">はい、築年数の古い物件でも査定可能です。まずはお気軽にご相談ください。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--選択フォーム-->
+    <section class="estimate-section">
+      <div class="estimate-message">あなたの不動産を<span>今すぐ無料査定</span></div>
+
+      <div class="estimate-form">
+        <div class="estimate-item">
+          <div class="estimate-head">
+            <span class="estimate-step">Step.1</span>
+            <span class="estimate-label">物件種別を選択</span>
+          </div>
+
+          <select class="estimate-select js-propertyType">
+            <option value="">物件種別を選択</option>
+            <option value="戸建て">戸建て</option>
+            <option value="分譲マンション">分譲マンション</option>
+            <option value="土地">土地</option>
+          </select>
+        </div>
+
+        <!-- 都道府県 -->
+        <div class="estimate-item">
+          <div class="estimate-head">
+            <span class="estimate-step">Step.2</span>
+            <span class="estimate-label">都道府県を選択</span>
+          </div>
+
+          <select class="estimate-select js-prefecture">
+            <option value="">都道府県を選択</option>
+          </select>
+        </div>
+
+        <!-- 市区町村 -->
+        <div class="estimate-item">
+          <div class="estimate-head estimate-head--single">
+            <span class="estimate-label">市区町村を選択</span>
+          </div>
+
+          <select class="estimate-select js-city" disabled>
+            <option value="">市区町村を選択</option>
+          </select>
+        </div>
+
+        <!-- 地区名・丁目 -->
+        <div class="estimate-item">
+          <div class="estimate-head estimate-head--single">
+            <span class="estimate-label">地区名・丁目を選択</span>
+          </div>
+
+          <select class="estimate-select js-town" disabled>
+            <option value="">地区名・丁目を選択</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- 診断開始ボタン -->
+    <div class="cta-area">
+      <a href="/appraisal/form/index.html" class="cta-button js-goToForm">
+        <span class="cta-sub">かんたん60秒入力で完了</span>
+        <span class="cta-main">今すぐ無料で査定する</span>
+      </a>
+    </div>
+    <!-- Footer -->
+    <footer>
+      <div class="footer wrapper">
+        <div class="footer-box_top">
+          <nav class="footer-box_text">
+            <ul class="footer-box_body-top">
+              <li><a href="/napure/company/index.html" target="_blank" rel="noopener noreferrer">運営会社</a></li>
+              <li><a href="/service/about/terms/index.html">利用規約</a></li>
+              <li>
+                <a href="/napure/privacypolicy/index.html" target="_blank" rel="noopener noreferrer">
+                  プライバシーポリシー
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- 免責事項 -->
+        <div class="footer-disclaimer">
+          <p class="footer-disclaimer-title">免責事項</p>
+          <p class="footer-disclaimer-text">
+            当サービスの提供、または当サービスの変更、遅延、中止、廃止その他当サービスに関わり利用者または第三者が損害を被った場合でも、当社に故意又は重過失がない限り、当社は一切の責任を負わないものとします。利用者はこれを承認の上、自己の責任において当サービスを利用するものとします。
+          </p>
+        </div>
+        <div class="footer-box_bottom">
+          <p>Copyright © Napure Co.,Ltd. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
